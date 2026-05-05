@@ -66,11 +66,12 @@ Assets/
    EnemyCannonTower.cs
    EnemyShipMovement.cs
    ShipBuoyancyKinematic.cs
+  GameManager.cs
   HitDetector.cs
   PanCameraController.cs
   PlayerShip.cs
   Swing.cs
-  UIController.cs
+  UI/UIController.cs
 Temp/obj/Assembly-CSharp/.NETStandard,Version=v2.1.AssemblyAttributes.cs
 
 [metadataReferences]

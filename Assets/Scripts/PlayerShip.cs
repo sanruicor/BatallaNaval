@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -55,6 +56,7 @@ public class PlayerShip : MonoBehaviour {
         UIController.instance.SetSpeedValue(actualSpeed);
         UIController.instance.SetRudderValue(rudderLevel);
     }
+
 
     // void OnGUI() {
     //     int screenH = Screen.height;
