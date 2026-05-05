@@ -50,16 +50,21 @@ public class PlayerShip : MonoBehaviour {
         transform.position += transform.forward * actualSpeed * Time.deltaTime;
         // Tenemos que usar el signo de powerLevel para que el giro se aplique al revés cuando el barco retrocede
         transform.eulerAngles += Vector3.up * actualAngularSpeed * Time.deltaTime * Mathf.Sign(powerLevel);
+
+        UIController.instance.SetPowerValue(powerLevel);
+        UIController.instance.SetSpeedValue(actualSpeed);
+        UIController.instance.SetRudderValue(rudderLevel);
     }
 
-    void OnGUI() {
-        int screenH = Screen.height;
-        int labelWidth = 150;
-        int labelHeight = 20;
+    // void OnGUI() {
+    //     int screenH = Screen.height;
+    //     int labelWidth = 150;
+    //     int labelHeight = 20;
 
-        GUI.Label(new Rect(10, screenH - 80,labelWidth, labelHeight),"Speed: " + actualSpeed);
-        GUI.Label(new Rect(10, screenH - 60,labelWidth, labelHeight),"PowerLevel: " + powerLevel);
-        GUI.Label(new Rect(10, screenH - 40,labelWidth, labelHeight),"AngularSpeed: " + actualAngularSpeed);
-        GUI.Label(new Rect(10, screenH - 20,labelWidth, labelHeight),"RudderLevel: " + rudderLevel);
-    }
+    //     GUI.Label(new Rect(10, screenH - 80,labelWidth, labelHeight),"Speed: " + actualSpeed);
+    //     GUI.Label(new Rect(10, screenH - 60,labelWidth, labelHeight),"PowerLevel: " + powerLevel);
+    //     GUI.Label(new Rect(10, screenH - 40,labelWidth, labelHeight),"AngularSpeed: " + actualAngularSpeed);
+    //     GUI.Label(new Rect(10, screenH - 20,labelWidth, labelHeight),"RudderLevel: " + rudderLevel);
+    // }
+
 }

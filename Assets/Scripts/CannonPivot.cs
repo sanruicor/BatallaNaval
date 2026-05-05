@@ -52,14 +52,14 @@ public class CannonPivot : MonoBehaviour
             rightCannon.Shot();
         }
 
-        /* Hacemos que el cañon dispare como máximo cada 4 segundos
-        *        if (Keyboard.current.spaceKey.wasPressedThisFrame && Time.time >= nextFireTime)
-        *        {
-        *            leftCannon.Shot();
-        *            rightCannon.Shot();
-        *            nextFireTime = Time.time + fireRate;
-        *        }
-        */
+        // //Hacemos que el cañon dispare como máximo cada 4 segundos
+        //         if (Keyboard.current.spaceKey.wasPressedThisFrame && Time.time >= nextFireTime)
+        //         {
+        //             leftCannon.Shot();
+        //             rightCannon.Shot();
+        //             nextFireTime = Time.time + fireRate;
+        //         }
+       
 
         transform.localEulerAngles = newEulerAngles;
     }

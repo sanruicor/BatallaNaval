@@ -38,6 +38,7 @@ public class CannonShot : MonoBehaviour
         psShot.Play();
 
         cannonLoaded = false;
+        UIController.instance.SetCannonLoadStatus(false);
         Invoke(nameof(LoadCannon), 4f);
 
         // ya que hemos puesto la variable BulletToFollow para indicar si el cañon se debe hacer responsable de airear la información de
@@ -53,24 +54,25 @@ public class CannonShot : MonoBehaviour
     private void LoadCannon()
     {
         cannonLoaded = true;
+        UIController.instance.SetCannonLoadStatus(true);
     }
 
-    void OnGUI()
-    {
-        // Usamos BulletToFollow para que solo uno de los cañones modifique el IU
-        string loaded = "Loaded";
-        GUIStyle style = new GUIStyle();
-        style.normal.textColor = Color.green;
-        style.fontSize = 30;
+    // void OnGUI()
+    // {
+    //     // Usamos BulletToFollow para que solo uno de los cañones modifique el IU
+    //     string loaded = "Loaded";
+    //     GUIStyle style = new GUIStyle();
+    //     style.normal.textColor = Color.green;
+    //     style.fontSize = 30;
 
-        if (BulletToFollow)
-        {
-            if (!cannonLoaded)
-            {
-                loaded = "Not loaded";
-                style.normal.textColor = Color.red;
-            }
-            GUI.Label(new Rect(Screen.width -140, Screen.height - 50, 130, 40), loaded, style);
-        }
-    }
+    //     if (BulletToFollow)
+    //     {
+    //         if (!cannonLoaded)
+    //         {
+    //             loaded = "Not loaded";
+    //             style.normal.textColor = Color.red;
+    //         }
+    //         GUI.Label(new Rect(Screen.width -140, Screen.height - 50, 130, 40), loaded, style);
+    //     }
+    // }
 }
