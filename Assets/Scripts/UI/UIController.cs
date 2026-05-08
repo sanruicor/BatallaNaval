@@ -7,17 +7,22 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     public static UIController instance;
+    [Header("Ship movement")]
     [SerializeField] private TextMeshProUGUI powerValue;
     [SerializeField] private TextMeshProUGUI directionValue;
     [SerializeField] private TextMeshProUGUI speedValue;
     [SerializeField] private TextMeshProUGUI rudderValue;
     [SerializeField] private TextMeshProUGUI rudderDirectionValue;
+    [Header("Cannon status")]
     [SerializeField] private Image cannonLoadIndicator;
     [SerializeField] private Color loadedColor;
     [SerializeField] private Color unloadedColor;
+    [Header("Player health")]
     [SerializeField] private List<Image> healthBarLeds;
     [SerializeField] private Color healthBarLeftColor;
     [SerializeField] private Color healthBarRightColor;
+    [Header("Score")]
+    [SerializeField] private TextMeshProUGUI scoreValue;
 
     void Awake()
     {
@@ -86,5 +91,10 @@ public class UIController : MonoBehaviour
         {
             healthBarLeds[i].color = Color.Lerp(healthBarLeftColor, healthBarRightColor, (float) i/(ledCount-1));
         }
+    }
+
+    public void SetScorePoints(int score)
+    {
+        scoreValue.text = score.ToString();
     }
 }

@@ -33,6 +33,11 @@ public class EnemyShipMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (GameManager.instance.GameOver)
+        {
+            return;
+        }
+        
         playerShipVector = playerShip.transform.position - transform.position;
         targetPositionVector = targetPosition - transform.position;
         targetPositionDistance = targetPositionVector.magnitude;

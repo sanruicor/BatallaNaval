@@ -31,6 +31,11 @@ public class EnemyCannonTower : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (GameManager.instance.GameOver)
+        {
+            return;
+        }
+
         Vector3 playerShipVector = esm.playerShipVector;
         float playerShipDistance = esm.playerShipDistance;
 

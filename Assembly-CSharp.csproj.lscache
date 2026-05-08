@@ -60,6 +60,9 @@ Assets/
   CameraController.cs
   CannonPivot.cs
   CannonShot.cs
+  Data/
+   DataManager.cs
+   ScoreData.cs
   EnemyShip/
    EnemyBullet.cs
    EnemyCannon.cs
@@ -71,7 +74,11 @@ Assets/
   PanCameraController.cs
   PlayerShip.cs
   Swing.cs
-  UI/UIController.cs
+  UI/
+   HighScoreTable.cs
+   HighScoreUIController.cs
+   ScoreRow.cs
+   UIController.cs
 Temp/obj/Assembly-CSharp/.NETStandard,Version=v2.1.AssemblyAttributes.cs
 
 [metadataReferences]
