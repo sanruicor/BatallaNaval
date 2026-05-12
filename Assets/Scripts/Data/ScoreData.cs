@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 [Serializable]
-public struct ScoreData
+public struct ScoreData : IComparable<ScoreData>
 {
     public string name;
     public int score;
@@ -12,10 +12,23 @@ public struct ScoreData
         this.name = name;
         this.score = score;
     }
+
+    public int CompareTo(ScoreData other)
+    {
+        if (this.score < other.score)
+        {
+            return -1;
+        } 
+        else if (this.score > other.score)
+        {
+            return 1;
+        }
+        return 0;
+    }
 }
 
 [Serializable]
 public class ScoreDataList
 {
-    public static List<ScoreData> list = new List<ScoreData>();
+    public List<ScoreData> list = new List<ScoreData>();
 }

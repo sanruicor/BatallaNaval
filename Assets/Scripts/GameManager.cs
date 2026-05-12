@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
             hd.OnHit += EnemyHitted;
         }
 
-        //HighScoreUIController.instance.gameObject.SetActive(false);
+        HighScoreUIController.instance.gameObject.SetActive(false);
     }
 
     private void ShipHitted(HitDetector detector, Collision c)

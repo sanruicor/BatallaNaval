@@ -5,28 +5,22 @@ public class HighScoreTable : MonoBehaviour
 {
     [SerializeField] private Transform content;
     [SerializeField] private GameObject rowPrefab;
-
-    // Para pruebas
-    private List<ScoreData> data;
     
     void Start()
     {
-        data = new List<ScoreData>();
-        data.Add(new ScoreData("Antonio", 100));
-        data.Add(new ScoreData("Belén", 120));
-        data.Add(new ScoreData("Carlos", 80));
-
         RefreshTableContent();
-    }
-
-    void Update()
-    {
-        
     }
 
     public void RefreshTableContent()
     {
-        foreach (ScoreData sd in data)
+        // Borramos todo el contenido de la tabla
+        foreach (Transform t in content.GetComponentInChildren<Transform>())
+        {
+            Destroy(t.gameObject);
+        }
+
+        // Rellenamos la tabla
+        foreach (ScoreData sd in DataManager.instance.sdl.list)
         {
             GameObject row = Instantiate(rowPrefab);
             row.GetComponent<ScoreRow>().SetData(sd);
