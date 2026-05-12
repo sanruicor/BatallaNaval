@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HighScoreUIController : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class HighScoreUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreValue;
     [SerializeField] private TMP_InputField playerNameInput;
     [SerializeField] private HighScoreTable hst;
+    [SerializeField] private GameObject newScoreSection;
+    [SerializeField] private GameObject newGameSection;
     private int score;
 
     void Awake()
@@ -16,7 +19,8 @@ public class HighScoreUIController : MonoBehaviour
 
     void Start()
     {
-        
+        newScoreSection.SetActive(true);
+        newGameSection.SetActive(false);
     }
 
     void Update()
@@ -29,6 +33,14 @@ public class HighScoreUIController : MonoBehaviour
         Debug.Log("[HighScoreUIController] " + playerNameInput.text + ": " + scoreValue.text);
         DataManager.instance.SaveData(new ScoreData(playerNameInput.text, score));
         hst.RefreshTableContent();
+
+        newScoreSection.SetActive(false);
+        newGameSection.SetActive(true);
+    }
+
+    public void NewGameButtonOnClick()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void SetScore(int score)
